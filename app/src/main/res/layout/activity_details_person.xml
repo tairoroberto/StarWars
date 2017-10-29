@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout android:id="@+id/activity_details_person_rl_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dim_10">
+
+
+            <ImageView
+                android:id="@+id/activity_details_person_info_arrow"
+                android:layout_width="@dimen/dim_30"
+                android:layout_height="@dimen/dim_30"
+                android:src="@drawable/ic_keyboard_arrow_down_white_48dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/textView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INFORMATIONS"
+                android:paddingLeft="@dimen/dim_5"
+                android:textColor="@color/colorTextLink"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textView" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_details_person_ll_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/dim_20"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/activity_details_person_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Height" />
+
+            <TextView
+                android:id="@+id/activity_details_person_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="77" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Mass" />
+
+            <TextView
+                android:id="@+id/activity_details_person_mass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="77" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Hair color" />
+
+            <TextView
+                android:id="@+id/activity_details_person_hair_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textColor="@color/colorText"
+                android:textStyle="bold"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Blond" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Skin color" />
+
+            <TextView
+                android:id="@+id/activity_details_person_skin_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Fair" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Eye color" />
+
+            <TextView
+                android:id="@+id/activity_details_person_eye_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Blue" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Birth year" />
+
+            <TextView
+                android:id="@+id/activity_details_person_birth_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Luke Skywalker" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Gender" />
+
+            <TextView
+                android:id="@+id/activity_details_person_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Male" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Date capture" />
+
+            <TextView
+                android:id="@+id/activity_details_person_date_capture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="20/10/2017 17:00" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:textColor="@color/colorText"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:text="Location capture QR Code" />
+
+            <TextView
+                android:id="@+id/activity_details_person_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_5"
+                android:clickable="true"
+                android:gravity="right"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextLink"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+                android:text="Click fo view in MAPS" />
+
+        </LinearLayout>
+
+        <RelativeLayout android:id="@+id/activity_details_person_rl_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dim_10">
+
+
+            <ImageView
+                android:id="@+id/activity_details_person_arrow"
+                android:layout_width="@dimen/dim_30"
+                android:layout_height="@dimen/dim_30"
+                android:src="@drawable/ic_keyboard_arrow_down_white_48dp"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIEW MOVIES"
+                android:paddingLeft="@dimen/dim_5"
+                android:textColor="@color/colorTextLink"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/activity_details_person_page_films"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/activity_details_person_view_pager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
