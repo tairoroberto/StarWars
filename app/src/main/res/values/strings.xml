@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Star Wars</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="yes">sim</string>
+    <string name="not">não</string>
+    <string name="rational_permission">Pernissões são necessárias para salvar imagens :)</string>
+    <string name="atention">Atenção</string>
 </resources>
