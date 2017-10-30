@@ -1,12 +1,10 @@
 package br.com.tairoroberto.starwars.details.principal
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -16,7 +14,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-
 import br.com.tairoroberto.starwars.R
 import br.com.tairoroberto.starwars.base.Constants
 import br.com.tairoroberto.starwars.model.Person
@@ -31,7 +28,6 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
 
         this.init()
         this.setupPersonData()
-
     }
 
     /**
@@ -53,7 +49,6 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
 
         val link = this.findViewById<View>(R.id.activity_details_person_link) as TextView
         link.setOnClickListener(this)
-
     }
 
     /**
@@ -128,7 +123,6 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
             this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + person?.latitude +
                     "," + person?.longitude + "(QR Code '" + person?.name + "') ")))
         }
-
     }
 
     /**

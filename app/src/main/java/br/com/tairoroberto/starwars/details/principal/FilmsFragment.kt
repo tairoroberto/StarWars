@@ -68,20 +68,17 @@ class FilmsFragment : Fragment, View.OnClickListener {
             }
         }
 
-    constructor() {}
+    constructor()
 
     @SuppressLint("ValidFragment")
     constructor(person: Person?, position: Int) {
-
         this.person = person
         this.position = position
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val view = inflater.inflate(R.layout.fragment_page_films, container, false) as ViewGroup
         this.init(view)
-
         return view
     }
 
@@ -95,7 +92,6 @@ class FilmsFragment : Fragment, View.OnClickListener {
         }
 
         imageFilm.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View) {
