@@ -3,12 +3,14 @@
         android:id="@+id/fragmnet_page_film_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" >
+        android:gravity="center"
+        android:fillViewport="true">
 
         <ImageView
-            android:id="@+id/fragment_page_films_image"
+            android:id="@+id/fragment_film"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
             android:layout_margin="@dimen/dim_10" />
 
 </ScrollView>

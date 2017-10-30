@@ -63,30 +63,27 @@ class FilmsFragment : Fragment, View.OnClickListener {
                 }
                 else -> {
                     urlFilm = null
-                    throw Exception(getString(R.string.films_fragment_film_no_related))
+                    throw Exception(getString(R.string.not_found))
                 }
             }
         }
 
-    constructor() {}
+    constructor()
 
     @SuppressLint("ValidFragment")
     constructor(person: Person?, position: Int) {
-
         this.person = person
         this.position = position
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val view = inflater.inflate(R.layout.fragment_page_films, container, false) as ViewGroup
         this.init(view)
-
         return view
     }
 
     private fun init(view: ViewGroup) {
-        val imageFilm = view.findViewById<View>(R.id.fragment_page_films_image) as ImageView
+        val imageFilm = view.findViewById<View>(R.id.fragment_film) as ImageView
         try {
             imageFilm.setImageDrawable(ContextCompat.getDrawable(view.context, idImageFilm))
 
@@ -95,14 +92,12 @@ class FilmsFragment : Fragment, View.OnClickListener {
         }
 
         imageFilm.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View) {
-        if (view.id == R.id.fragment_page_films_image) {
+        if (view.id == R.id.fragment_film) {
             this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlFilm)))
             this.activity?.overridePendingTransition(android.support.v7.appcompat.R.anim.abc_slide_in_bottom, android.support.v7.appcompat.R.anim.abc_slide_out_top)
-
         }
     }
 }

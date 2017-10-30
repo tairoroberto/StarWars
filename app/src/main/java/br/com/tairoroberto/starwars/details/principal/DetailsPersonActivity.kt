@@ -1,13 +1,11 @@
 package br.com.tairoroberto.starwars.details.principal
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -16,7 +14,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-
 import br.com.tairoroberto.starwars.R
 import br.com.tairoroberto.starwars.base.Constants
 import br.com.tairoroberto.starwars.model.Person
@@ -31,7 +28,6 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
 
         this.init()
         this.setupPersonData()
-
     }
 
     /**
@@ -53,7 +49,6 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
 
         val link = this.findViewById<View>(R.id.activity_details_person_link) as TextView
         link.setOnClickListener(this)
-
     }
 
     /**
@@ -108,33 +103,32 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
             if (rlPageFilms.visibility == RelativeLayout.GONE) {
                 rlPageFilms.visibility = RelativeLayout.VISIBLE
                 llPageFilms.visibility = LinearLayout.GONE
-                moviesArrow.setImageDrawable(this.getDrawable(R.drawable.ic_keyboard_arrow_up_white_48dp))
+                moviesArrow.setImageDrawable(this.getDrawable(R.drawable.ic_arrow_up_white_48dp))
             } else {
                 rlPageFilms.visibility = RelativeLayout.GONE
-                moviesArrow.setImageDrawable(this.getDrawable(R.drawable.ic_keyboard_arrow_down_white_48dp))
+                moviesArrow.setImageDrawable(this.getDrawable(R.drawable.ic_arrow_down_white_48dp))
             }
         } else if (view.id == R.id.activity_details_person_rl_info) {
 
             if (llPageFilms.visibility == LinearLayout.GONE) {
                 rlPageFilms.visibility = RelativeLayout.GONE
                 llPageFilms.visibility = LinearLayout.VISIBLE
-                infoArrow.setImageDrawable(this.getDrawable(R.drawable.ic_keyboard_arrow_up_white_48dp))
+                infoArrow.setImageDrawable(this.getDrawable(R.drawable.ic_arrow_up_white_48dp))
             } else {
                 llPageFilms.visibility = RelativeLayout.GONE
-                infoArrow.setImageDrawable(this.getDrawable(R.drawable.ic_keyboard_arrow_down_white_48dp))
+                infoArrow.setImageDrawable(this.getDrawable(R.drawable.ic_arrow_down_white_48dp))
             }
         } else if (view.id == R.id.activity_details_person_link) {
 
             this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + person?.latitude +
                     "," + person?.longitude + "(QR Code '" + person?.name + "') ")))
         }
-
     }
 
     /**
      * Subclasse do frangmento do PageView
      */
-    private inner class FragmentFilmsAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+    private inner class FragmentFilmsAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment {
             return FilmsFragment(person, position)
@@ -143,9 +137,5 @@ class DetailsPersonActivity : AppCompatActivity(), View.OnClickListener {
         override fun getCount(): Int {
             return person?.films?.size as Int
         }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
     }
 }
