@@ -12,9 +12,12 @@ import android.net.NetworkInfo
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.support.v4.app.ActivityCompat
+import android.widget.ImageView
+import br.com.tairoroberto.starwars.R
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -114,4 +117,8 @@ fun Context.getRetrofit(context: Context): Api? {
     }
 
     return retrofit?.create(Api::class.java)
+}
+
+fun ImageView.loadImage(url: String?) {
+    Picasso.with(context).load(url).placeholder(R.drawable.film_1).into(this)
 }

@@ -6,7 +6,7 @@
         android:gravity="center" >
 
         <ImageView
-            android:id="@+id/fragment_page_films_image"
+            android:id="@+id/fragment_film"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dim_10" />

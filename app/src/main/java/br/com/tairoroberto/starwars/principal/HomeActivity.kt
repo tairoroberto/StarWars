@@ -1,22 +1,21 @@
 package br.com.tairoroberto.starwars.principal
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.RelativeLayout
-import android.widget.Toast
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import br.com.tairoroberto.starwars.R
 import br.com.tairoroberto.starwars.base.isConnected
 import br.com.tairoroberto.starwars.model.Person
@@ -24,23 +23,25 @@ import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
-class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
+class HomeActivity : AppCompatActivity(), HomeContract.View, OnClick {
 
     private val REQUEST_PERMISSIONS = 2
-    private val RESULT_QR_OK = 1
-    private val MY_PERMISSIONS_REQUEST = 1
     private val permissions = ArrayList<String>()
-    private var presenter: IPrincipalPresenter? = null
+    private var presenter: HomeContract.Preseter? = null
+    private val listPerson: ArrayList<Person> = ArrayList()
 
+    var adapter: HomePersonAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(toolbar)
 
-        presenter = PrincipalPresenterImpl(this)
+        presenter = HomePresenter()
+        presenter?.attachView(this)
 
         fab.setOnClickListener {
             if (mayRequestSdCardPermissions()) {
@@ -48,45 +49,52 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             }
         }
 
-        activity_principal_lv_person.adapter = presenter?.loadPersonAdapter()
-        activity_principal_lv_person.onItemClickListener = this
+        adapter = HomePersonAdapter(this, listPerson, this)
+
+        val layoutManageer = LinearLayoutManager(this)
+        layoutManageer.orientation = LinearLayoutManager.VERTICAL
+        recyclerView.layoutManager = layoutManageer
+        recyclerView.adapter = adapter
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter?.detachView()
+    }
+
+    override fun onItemClick(person: Person) {
+        presenter?.sendDetailActivity(person)
+        overridePendingTransition(android.support.v7.appcompat.R.anim.abc_slide_in_bottom, android.support.v7.appcompat.R.anim.abc_slide_out_top)
+    }
 
     override fun onResume() {
         super.onResume()
         if (isConnected()) {
-            fab.visibility = FloatingActionButton.VISIBLE
+            fab.visibility = VISIBLE
         } else {
-            fab.visibility = FloatingActionButton.GONE
+            fab.visibility = GONE
         }
 
-        activity_principal_lv_person.adapter = presenter?.loadPersonAdapter()
+        presenter?.loadPerson()
 
-        val relList = this.findViewById<View>(R.id.activity_principal_rl_list) as RelativeLayout
-        val relNodata = this.findViewById<View>(R.id.activity_principal_rl_no_data) as RelativeLayout
-
-        if (presenter?.sizeAdapterPersons() as Int > 0) {
-            relList.visibility = RelativeLayout.VISIBLE
-            relNodata.visibility = RelativeLayout.GONE
+        if (listPerson.size > 0) {
+            content_list.visibility = VISIBLE
+            content_no_data.visibility = GONE
         } else {
-            relList.visibility = RelativeLayout.GONE
-            relNodata.visibility = RelativeLayout.VISIBLE
+            content_list.visibility = GONE
+            content_no_data.visibility = VISIBLE
         }
-
     }
 
-    override fun onItemClick(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
-        val person = adapterView.getItemAtPosition(i) as Person
-        presenter?.sendDetailActivity(person)
-        overridePendingTransition(android.support.v7.appcompat.R.anim.abc_slide_in_bottom, android.support.v7.appcompat.R.anim.abc_slide_out_top)
-
+    override fun updateAdapter(listPerson: ArrayList<Person>) {
+        this.listPerson.clear()
+        this.listPerson.addAll(listPerson)
+        adapter?.update(this.listPerson)
     }
 
-    fun showToastMsg(msg: String) {
-        val snackbar = Snackbar.make(this.findViewById(R.id.activity_rl_root), msg, Snackbar.LENGTH_LONG)
+    override fun showToastMsg(msg: String?) {
+        val snackbar = Snackbar.make(this.findViewById(R.id.activity_rl_root), msg as String, Snackbar.LENGTH_LONG)
         snackbar.show()
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -95,7 +103,7 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
+                //Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
             } else {
                 presenter?.processCaptureQRCode(result.contents)
             }
@@ -152,7 +160,6 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         return false
     }
 
-
     /**
      * Callback received when a permissions request has been completed.
      */
@@ -165,6 +172,7 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
 
+
     fun initCamera() {
         val integrator = IntentIntegrator(this)
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES)
@@ -175,7 +183,11 @@ class HomeActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         integrator.initiateScan()
     }
 
-    fun getContext(): Context {
-        return  this
+    override fun getContext(): Context {
+        return this
+    }
+
+    override fun getActivity(): Activity {
+        return this
     }
 }

@@ -6,10 +6,10 @@
     <string name="rational_permission">Pernissões são necessárias para salvar imagens :)</string>
     <string name="atention">Atenção</string>
 
-    <string name="no_qr_read">No data found</string>
-    <string name="activity_principal_info">To read a QR Code click the button below.</string>
-    <string name="activity_principal_erro_exists">Character \'%1$s\' read before</string>
-    <string name="films_fragment_film_no_related">Unrelated movie</string>
+    <string name="no_data">Nenhum personagem</string>
+    <string name="place_holder">Clique no botão para ler um QR Code.</string>
+    <string name="exists">Personagem \'%1$s\' Já Existe</string>
+    <string name="not_found">Não encontrado</string>
     <string name="film_4" >http://www.starwars.com/films/star-wars-episode-iv-a-new-hope</string>
     <string name="film_5" >http://www.starwars.com/films/star-wars-episode-v-the-empire-strikes-back</string>
     <string name="film_6" >http://www.starwars.com/films/star-wars-episode-vi-return-of-the-jedi</string>

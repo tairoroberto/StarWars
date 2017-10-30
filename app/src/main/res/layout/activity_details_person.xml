@@ -20,7 +20,7 @@
                 android:id="@+id/activity_details_person_info_arrow"
                 android:layout_width="@dimen/dim_30"
                 android:layout_height="@dimen/dim_30"
-                android:src="@drawable/ic_keyboard_arrow_down_white_48dp"
+                android:src="@drawable/ic_arrow_down_white_48dp"
                 android:layout_alignParentTop="true"
                 android:layout_toStartOf="@+id/textView" />
 
@@ -252,7 +252,7 @@
                 android:id="@+id/activity_details_person_arrow"
                 android:layout_width="@dimen/dim_30"
                 android:layout_height="@dimen/dim_30"
-                android:src="@drawable/ic_keyboard_arrow_down_white_48dp"
+                android:src="@drawable/ic_arrow_down_white_48dp"
                 android:layout_alignParentTop="true"
                 android:layout_toStartOf="@+id/textView2" />
 
