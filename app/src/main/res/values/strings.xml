@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Star Wars</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="yes">sim</string>
+    <string name="not">não</string>
+    <string name="rational_permission">Pernissões são necessárias para salvar imagens :)</string>
+    <string name="atention">Atenção</string>
+
+    <string name="no_data">Nenhum personagem</string>
+    <string name="place_holder">Clique no botão para ler um QR Code.</string>
+    <string name="exists">Personagem \'%1$s\' Já Existe</string>
+    <string name="not_found">Não encontrado</string>
+    <string name="film_4" >http://www.starwars.com/films/star-wars-episode-iv-a-new-hope</string>
+    <string name="film_5" >http://www.starwars.com/films/star-wars-episode-v-the-empire-strikes-back</string>
+    <string name="film_6" >http://www.starwars.com/films/star-wars-episode-vi-return-of-the-jedi</string>
+    <string name="film_1" >http://www.starwars.com/films/star-wars-episode-i-the-phantom-menace</string>
+    <string name="film_2" >http://www.starwars.com/films/star-wars-episode-ii-attack-of-the-clones</string>
+    <string name="film_3" >http://www.starwars.com/films/star-wars-episode-iii-revenge-of-the-sith</string>
+    <string name="film_7" >http://www.starwars.com/films/star-wars-episode-vii-the-force-awakens</string>
+    <string name="film_8" >http://www.starwars.com/films/star-wars-episode-viii-the-last-jedi</string>
+</resources>
